@@ -1,0 +1,6 @@
+所包含的文件:
+OPTSY1606220.doxc 作业的word格式
+OPTSY1606220.pdf  作业的pdf格式，如果word中的公式或者表格因office版本问题而无法正常显示，则可打开pdf
+case1.m	          最大弧利用率MLU的求解程序
+case2.m           极小化FT成本函数的求解程序
+说明.txt          说明文件
