@@ -26,3 +26,55 @@ for i=1:4
     hold off
     BasicNewton(x(i,:)',mu);
 end
+figure(2);
+x=[8,90;1,40;15,68.69;10,20];
+for i=1:4
+    subplot(2,2,i);
+    pz=qx(px,py,mu);
+    contour(px,py,pz,20);
+    x1=(50:1:75)';
+    x2=(75:-1:0)';
+    y1=x1-50;
+    y2=100-x2;
+    hold on
+    plot([x1;x2],[y1;y2],'r-');
+    legend("等高线","定义域")
+    hold off
+    LinearNewton(x(i,:)',mu);
+end
+
+%u=0.1
+mu=0.1;
+figure(3);
+x=[8,90;1,40;15,68.69;10,20];
+for i=1:4
+    subplot(2,2,i);
+    pz=qx(px,py,mu);
+    contour(px,py,pz,20);
+    x1=(50:1:75)';
+    x2=(75:-1:0)';
+    y1=x1-50;
+    y2=100-x2;
+    hold on
+    plot([x1;x2],[y1;y2],'r-');
+    legend("等高线","定义域")
+    hold off
+    BasicNewton(x(i,:)',mu);
+end
+figure(4);
+x=[8,90;1,40;15,68.69;10,20];
+for i=1:4
+    subplot(2,2,i);
+    pz=qx(px,py,mu);
+    contour(px,py,pz,20);
+    x1=(50:1:75)';
+    x2=(75:-1:0)';
+    y1=x1-50;
+    y2=100-x2;
+    hold on
+    plot([x1;x2],[y1;y2],'r-');
+    legend("等高线","定义域")
+    hold off
+    LinearNewton(x(i,:)',mu);
+end
+

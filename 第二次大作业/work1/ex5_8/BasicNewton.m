@@ -2,10 +2,10 @@ function [ x ] = BasicNewton( x,mu )
 % Summary of this function goes here
 %   Detailed explanation goes here
 px=x';
-for i=1:10
+for i=1:2
     g=gx(x,mu);
     G=hx(x,mu);
-    s=G'*(-1*g);
+    s=pinv(G)*(-1*g);
     x=x+s;
     px=[px;x'];
 end
