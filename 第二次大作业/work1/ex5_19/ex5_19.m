@@ -1,0 +1,13 @@
+clear;clc;
+[x,k]=Conjugate(5);
+x'
+k
+[x,k]=Conjugate(8);
+x'
+k
+[x,k]=Conjugate(12);
+x'
+k
+[x,k]=Conjugate(20);
+x'
+k
