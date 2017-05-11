@@ -10,12 +10,14 @@ while(1)
     a=Ax(x,t,d);
     A=a'*a;
     A=A+lambda*eye(2,2);
-    s=-1*pinv(A)*a'*r;
+    p=-1*pinv(A)*a'*r;
+    alpha=linearResearch(x,p,t,d);
+    s=alpha*p;
     f=fx(x,t,d);
     fn=fx(x+s,t,d);
-    rou=(f-fn)/(f-norm(r+a*s).^2/2)
+    rou=(f-fn)/(f-norm(r+a*s).^2/2);
     if (rou>0)
-        x=x+s
+        x=x+s;
         px=[px;x'];
     end
     if (rou<0.25)
@@ -23,14 +25,13 @@ while(1)
     elseif (rou>0.75)
         lambda=lambda/2;
     end
-    if (lambda<10^-20||norm(r)<10^-5) 
+    if (lambda<10^-20||abs(rou)<10^-5) 
         break;
     end
 end
     prex=px;
     prex(:,1)=1./(c*(1+px(:,2)));
     prex(:,2)=prex(:,1)./px(:,1);
-    prex
     %hold on
     plot(prex(:,1),prex(:,2),'rx-');
     %hold off

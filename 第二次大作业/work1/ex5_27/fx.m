@@ -6,8 +6,8 @@ c=96.05;
 x1=x(1:a/2,:);
 x2=x(a/2+1:end,:);
 y=zeros(a/2,b);
-loop=size(t,1);
-for i=1:loop
+n=size(t,1);
+for i=1:n
     y=y+((1-t(i).*x1).^x2-d(i)).^2;
 end
 end
