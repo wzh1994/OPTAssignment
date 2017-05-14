@@ -25,15 +25,31 @@ while(1)
     elseif (rou>0.75)
         lambda=lambda/2;
     end
-    if (lambda<10^-20||abs(rou)<10^-5) 
+    if (lambda<10^-20||norm(rou)<10^-6) 
         break;
     end
 end
     prex=px;
     prex(:,1)=1./(c*(1+px(:,2)));
     prex(:,2)=prex(:,1)./px(:,1);
-    %hold on
-    plot(prex(:,1),prex(:,2),'rx-');
-    %hold off
+    sz=size(prex,1);
+    for i=1:sz
+        if i==1
+            fprintf("经过%d次迭代，迭代路径为:",sz-1);
+        else
+            fprintf("->");
+        end
+        if rem(i,4)==1
+            fprintf("\n  ")
+        end
+        fprintf("("+prex(i,1)+","+prex(i,2)+")");
+        if i==sz
+            fprintf(".\n");
+        end
+    end
+    hold on
+    plot(prex(:,1),prex(:,2),'b-');
+    plot(prex(2:end,1),prex(2:end,2),'bx');
+    hold off
 end
 

@@ -2,7 +2,7 @@ function [ alpha ] = linearResearch( x,p,t,d )
 %LINEARRESEARCH Summary of this function goes here
 %   Detailed explanation goes here
 alpha=1;
-garma=0.8;
+garma=0.01;
 rho=0.01;
 f=fx(x,t,d);
 g=gx(x,t,d);

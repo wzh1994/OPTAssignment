@@ -32,12 +32,11 @@ else
             tau2=(-1*p'*x_o-sqrt((p'*x_o).^2-p'*p*(x_o'*x_o-delta^2)))/(p'*p);
             if (subqx(x_o+tau1,G,g)<subqx(x_o+tau2,G,g))
                 x=x_o+tau1*p;
-                fprintf("子问题经过%d次迭代,达到边界停止迭代,迭代的τ为%f。",cyc,tau1);
             else 
                 x=x_o+tau2*p;
-                fprintf("子问题经过%d次迭代,达到边界停止迭代,迭代的τ为%f。",cyc,tau2);
             end
             s=x;
+            fprintf("子问题经过%d次迭代,达到信赖域边界停止迭代。",cyc);
             break;
         end
         r_old=r;
