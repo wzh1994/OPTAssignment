@@ -1,11 +1,11 @@
-function [ x ] = SteepestDescent( x )
+function [ x,step] = SteepestDescent( x )
 %SPEEDESTDESCENT Summary of this function goes here
 %   Detailed explanation goes here
 px=x';
 step=[];
 while(1)
     g=gx(x);
-    if (abs(g)<10^-6) 
+    if (norm(g)<10^-6) 
         break;
     end
     p=-1*g;
@@ -15,7 +15,6 @@ while(1)
     x=x+s;
     px=[px;x'];
 end
-step
 hold on
 plot(px(:,1),px(:,2),'rx-','MarkerSize',3);
 hold off
